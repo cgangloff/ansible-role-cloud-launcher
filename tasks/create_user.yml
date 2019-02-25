@@ -9,3 +9,6 @@
     domain: "{{ item_user.domain|default(omit) }}"
     default_project: "{{ item_user.default_project|default(omit) }}"
     region_name: "{{ item_cloud.region_name|default(omit) }}"
+    description: "{{ item_user.description|default(omit) }}"
+    interface: "{{ item_cloud.interface|default(omit) }}"
+    update_password: "{{ item_user.update_password|default(omit)}}"
