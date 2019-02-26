@@ -7,3 +7,7 @@
     external: "{{ item_network.external|default(omit) }}"
     project: "{{ item_network.project|default(omit) }}"
     region_name: "{{ item_cloud.region_name|default(omit) }}"
+    interface: "{{ item_network.interface|default(omit) }}"
+    provider_network_type: "{{ item_network.provider_network_type|default(omit) }}"
+    provider_physical_network: "{{ item_network.provider_physical_network|default(omit) }}"
+    provider_segmentation_id: "{{ item_network.provider_segmentation_id|default(omit) }}"
