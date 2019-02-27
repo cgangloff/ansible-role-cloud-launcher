@@ -1,0 +1,10 @@
+---
+- name: "Processing nova_host_aggregate {{ item_nova_host_aggregate.name }} for {{ item_cloud.oscc_cloud|default(item_cloud.name) }} {{ item_cloud.region_name|default('') }}"
+  os_nova_host_aggregate:
+    cloud: "{{ item_cloud.oscc_cloud|default(item_cloud.name) }}"
+    state: "{{ item_nova_host_aggregate.state|default(omit) }}"
+    name: "{{ item_nova_host_aggregate.name }}"
+    availability_zone: "{{ item_nova_host_aggregate.availability_zone|default(omit) }}"
+    hosts: "{{ item_nova_host_aggregate.hosts|default(omit) }}"
+    metadata: "{{ item_nova_host_aggregate.metadata|default(omit) }}"
+    region_name: "{{ item_cloud.region_name|default(omit) }}"

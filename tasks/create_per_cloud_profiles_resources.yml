@@ -8,6 +8,15 @@
   tags:
     - domains
 
+- name: "Processing nova_host_aggregates resources for profile {{ item_profile }}"
+  include: create_nova_host_aggregate.yml
+  with_items: "{{ profiles|selectattr('name', 'equalto', item_profile)|map(attribute='nova_host_aggregates')|list }}"
+  loop_control:
+    loop_var: item_nova_host_aggregate
+  when: "'nova_host_aggregates' in profiles|selectattr('name', 'equalto', item_profile)|list|first"
+  tags:
+    - nova_host_aggregates
+
 - name: "Processing projects resources for profile {{ item_profile }}"
   include: create_project.yml
   with_items: "{{ profiles|selectattr('name', 'equalto', item_profile)|map(attribute='projects')|list }}"
