@@ -7,6 +7,14 @@
   tags:
     - domains
 
+- name: "Processing per cloud nova_host_aggregate"
+  include: create_nova_host_aggregates.yml
+  with_items: "{{ item_cloud.projects|default([]) }}"
+  loop_control:
+    loop_var: item_nova_host_aggregate
+  tags:
+    - nova_host_aggregates
+
 - name: "Processing per cloud projects"
   include: create_project.yml
   with_items: "{{ item_cloud.projects|default([]) }}"
